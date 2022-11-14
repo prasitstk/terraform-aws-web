@@ -33,7 +33,7 @@ Create `terraform.tfvars` to define variables for Terraform as follows:
 aws_region     = "<your-aws-region>"
 aws_access_key = "<your-aws-access-key>"
 aws_secret_key = "<your-aws-secret-key>"
-src_repo_url   = "<https://github.com/<github-username>/<repository.git>>"
+src_repo_url   = "https://github.com/prasitstk/react-cors-spa.git"  # Can be the other of your React SPA app repository
 ```
 
 Initialize the project, plan, and apply the resource changes with the local state file by:
