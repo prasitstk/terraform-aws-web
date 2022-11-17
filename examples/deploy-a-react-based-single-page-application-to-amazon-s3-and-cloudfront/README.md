@@ -44,7 +44,33 @@ terraform plan -out /tmp/tfplan
 terraform apply /tmp/tfplan
 ```
 
-> NOTE: If you update something on REST API resources, please redeploy the API maually on API Gateway console.
+> NOTE: If you update something on REST API resources later, please redeploy the API maually on API Gateway console.
+
+---
+
+&nbsp;
+
+## Verification
+
+Print the output to get the CloudFront URL by:
+
+```sh
+terraform output
+# app_api_url = "https://<API-Gateway-API-ID>.execute-api.<your-aws-region>.amazonaws.com/v1"
+# app_cf_url = "https://<your-unique-cloudfront-subdomain>.cloudfront.net"
+```
+
+Verify the result by browsing to that URL from `app_cf_url` output to see whether you see the content on `index.html` page.
+
+Also verify that the React app requests the backend API endpoint `GET` to the URL from `app_api_url` output with `/hello` path at `<app_api_url>/hello` by going to `Network` tab on your Chrome `Developer Tools`.
+
+---
+
+&nbsp;
+
+## Clean up
+
+To clean up the whole stack by deleting all of the resources, run the following command:
 
 ```sh
 terraform destroy
@@ -54,7 +80,7 @@ terraform destroy
 
 &nbsp;
 
-# References
+## References
 
 - [Deploy a React-based single-page application to Amazon S3 and CloudFront](https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/deploy-a-react-based-single-page-application-to-amazon-s3-and-cloudfront.html)
 - [AWS CLI - Configuration basics](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html)
