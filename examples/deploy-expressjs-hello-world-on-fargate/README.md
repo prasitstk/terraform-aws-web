@@ -73,6 +73,7 @@ Print the output to get the Image repository information by:
 
 ```sh
 terraform output
+# app_ctr_img_repo_name = "<app_ctr_img_repo_name>"
 # app_ctr_img_repo_url = "<your-aws-account-ID>.dkr.ecr.<your-aws-region>.amazonaws.com/<app_ctr_img_repo_name>"
 # app_ctr_img_tag = "latest"
 # ...
