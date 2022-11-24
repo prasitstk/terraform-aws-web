@@ -17,22 +17,25 @@ variable "aws_secret_key" {
   description = "AWS Secret Key of your AWS account for the created resources"
 }
 
-variable "website_bucket_name" {
+variable "src_repo_url" {
   type        = string
-  description = "S3 bucket name for the website asset. It needs to be globally unique."
+  description = "Git source code repository URL"
+  default     = "https://github.com/prasitstk/expressjs-hello-world.git"
 }
 
-variable "aws_codestar_connection_arn" {
+variable "app_ctr_img_tag" {
   type        = string
-  description = "AWS CodeStar connection ARN of source codes to be deployed"
+  description = "Container image tag on the ECR image repository"
+  default     = "latest"
 }
 
-variable "full_repository_id" {
+variable "app_ctr_img_repo_name" {
   type        = string
-  description = "Full repository ID/path of the source code of the static website"
+  description = "ECR image repository name"
 }
 
-variable "branch_name" {
+variable "app_vpc_cidr_block" {
   type        = string
-  description = "Branch name of the repository of the source code of the static website"
+  description = "VPC CIDR block"
+  default     = "10.0.0.0/16"
 }
