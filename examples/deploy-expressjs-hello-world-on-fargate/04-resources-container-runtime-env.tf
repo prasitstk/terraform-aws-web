@@ -83,7 +83,7 @@ resource "aws_ecs_service" "app_service" {
   cluster         = "${aws_ecs_cluster.app_ctr_cluster.id}"        # Referencing our created Cluster
   task_definition = "${aws_ecs_task_definition.app_taskdef.arn}"   # Referencing the task our service will spin up
   launch_type     = "FARGATE"
-  desired_count   = 3                                              # Setting the number of containers we want deployed to 3
+  desired_count   = var.app_svc_fixed_task_count                   # Setting the number of containers we want deployed to 3
   
   load_balancer {
     target_group_arn = aws_lb_target_group.app_tgtgrp.arn
@@ -104,9 +104,9 @@ resource "aws_ecs_service" "app_service" {
   #   redeployment = timestamp()
   # }
   
-  # Optional: Allow external changes without Terraform plan difference
-  lifecycle {
-    ignore_changes = [desired_count]
-  }
+  # # Optional: Allow external changes without Terraform plan difference
+  # lifecycle {
+  #   ignore_changes = [desired_count]
+  # }
   
 }

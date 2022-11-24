@@ -39,3 +39,9 @@ variable "app_vpc_cidr_block" {
   description = "VPC CIDR block"
   default     = "10.0.0.0/16"
 }
+
+variable "app_svc_fixed_task_count" {
+  type        = number
+  description = "Fixed number of desired task count for the ECS service"
+  default     = 1
+}

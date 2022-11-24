@@ -30,13 +30,14 @@ aws configure
 Create `terraform.tfvars` to define variables for Terraform as follows:
 
 ```
-aws_region            = "<your-aws-region>"
-aws_access_key        = "<your-aws-access-key>"
-aws_secret_key        = "<your-aws-secret-key>"
-src_repo_url          = "https://github.com/prasitstk/expressjs-hello-world.git"  # Can be the other of your express.js app repository
-app_ctr_img_tag       = "latest"  # Can be changed
-app_ctr_img_repo_name = "node-docker-ecs-app"  # Can be changed
-app_vpc_cidr_block    = "10.0.0.0/16"  # Can be changed
+aws_region               = "<your-aws-region>"
+aws_access_key           = "<your-aws-access-key>"
+aws_secret_key           = "<your-aws-secret-key>"
+src_repo_url             = "https://github.com/prasitstk/expressjs-hello-world.git"  # Can be the other of your express.js app repository
+app_ctr_img_tag          = "latest"  # Can be changed
+app_ctr_img_repo_name    = "node-docker-ecs-app"  # Can be changed
+app_vpc_cidr_block       = "10.0.0.0/16"  # Can be changed
+app_svc_fixed_task_count = 2  # Can be changed
 ```
 
 Initialize the project, plan, and apply the resource changes with the local state file by:
