@@ -1,0 +1,20 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 12
+    commands:
+      - echo Installing dependencies needed...
+      - npm install
+      - echo "$DOTENV" > .env
+  build:
+    commands:
+      - echo Build the react app to give an optimized production build...
+      - npm run build
+  post_build:
+    commands:
+      - echo Copy the content of build folder into website s3 bucket...
+      - aws s3 rm s3://$WEBSITE_S3_BUCKET/ --recursive
+      - aws s3 sync build/ s3://$WEBSITE_S3_BUCKET/
+      - aws cloudfront create-invalidation --distribution-id=$CLOUDFRONT_DIST_ID --paths '/*'
+      - echo Build and deploy completed on `date`

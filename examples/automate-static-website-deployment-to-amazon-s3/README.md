@@ -25,7 +25,7 @@ aws_region                  = "<your-aws-region>"
 aws_access_key              = "<your-aws-access-key>"
 aws_secret_key              = "<your-aws-secret-key>"
 website_bucket_name         = "<your-globally-unique-bucket-name>"
-aws_codestar_connection_arn = "arn:aws:codestar-connections:ap-southeast-1:<AWS-Account-ID>:connection/<...>"
+aws_codestar_connection_arn = "arn:aws:codestar-connections:<your-aws-region>:<AWS-Account-ID>:connection/<...>"
 full_repository_id          = "<your-full-repository-id>"  # for example: "prasitstk/s3-static-site-demo"
 branch_name                 = "<your-branch>"  # for example: "main"
 ```
